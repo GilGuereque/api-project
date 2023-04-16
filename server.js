@@ -5,12 +5,12 @@ const PORT = 8000;
 
 // creating JSON object
 const rappers = {
-    '21 Savage': {
+    '21 savage': {
         'age': 29,
         'birthName': 'Shéyaa Bin Abraham-Joseph',
         'birthLocation': 'London, England'
     },
-    'Chance the Rapper': {
+    'chance the rapper': {
         'age': 29,
         'birthName': 'Chancelor Bennett',
         'birthLocation': 'Chicago, Illinois'
@@ -28,8 +28,10 @@ app.get('/', (request,response) => {
 });
 
 // get request for JSON 
-app.get('/api', (request,response) => {
-    response.json(rappers);
+// set up :name query parameter
+app.get('/api/:name', (request,response) => {
+    const rapperName = request.params.name;
+    response.json(rappers[rapperName]);
 });
 
 
