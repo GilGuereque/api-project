@@ -31,7 +31,12 @@ app.get('/', (request,response) => {
 // set up :name query parameter
 app.get('/api/:name', (request,response) => {
     const rapperName = request.params.name;
-    response.json(rappers[rapperName]);
+    
+    if (rappers[rapperName]) {
+        response.json(rappers[rapperName]);
+    }else{
+        response.json(rappers['unknown']);
+    }
 });
 
 
