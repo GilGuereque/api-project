@@ -1,7 +1,11 @@
 // set up express app & required const variables
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = 8000;
+
+// use cors package
+app.use(cors());
 
 // creating JSON object
 const rappers = {
