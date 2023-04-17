@@ -15,5 +15,11 @@
             // Specify the paths' destination
             "dest": "server.js"
         }
+        {
+            // Specify which paths will route to a destinations using regex
+            "src": "/api",
+            // Specify the paths' destination
+            "dest": "server.js"
+        }
     ]
   }
