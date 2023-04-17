@@ -28,8 +28,8 @@ const rappers = {
 
 // Create GET requests for file system:
 app.get('/', (request,response) => {
-    response.send("Express on Vercel");
-    //response.sendFile(__dirname + '/index.html');
+    //response.send("Express on Vercel");
+    response.sendFile(__dirname + '/index.html');
 });
 
 // Create GET request for JSON 
