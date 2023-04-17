@@ -26,15 +26,16 @@ const rappers = {
     }
 };
 
-// get requests for file system:
+// Create GET requests for file system:
 app.get('/', (request,response) => {
-    response.sendFile(__dirname + '/index.html');
+    response.send("Express on Vercel");
+    //response.sendFile(__dirname + '/index.html');
 });
 
-// get request for JSON 
+// Create GET request for JSON 
 // set up :name query parameter
 app.get('/api/:name', (request,response) => {
-    const rapperName = request.params.name;
+    const rapperName = request.params.name.toLowerCase();
     
     if (rappers[rapperName]) {
         response.json(rappers[rapperName]);
@@ -44,7 +45,10 @@ app.get('/api/:name', (request,response) => {
 });
 
 
-// set up listener to local PORT
+// Initialize server
 app.listen(process.env.PORT || PORT, () => {
     console.log(`The server is now running on port ${PORT}! PoggersChampion Kappa`);
 });
+
+// Export the Express API
+module.exports = app;
