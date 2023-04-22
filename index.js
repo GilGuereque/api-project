@@ -8,7 +8,7 @@ require('dotenv').config();
 
 // set up DB connection
 let db,
-    dbConnectionStr = 'mongodb+srv://gguereque326:<Morrison2392>@cluster1.0hai4xm.mongodb.net/?retryWrites=true&w=majority',
+    dbConnectionStr = process.env.DB_STRING,
     dbName = 'rap'
 
     MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
@@ -21,10 +21,10 @@ let db,
 app.use(cors());
 
 //use ejs and access public folder
-// app.set('view engine', 'ejs');
-// app.use(express.static('public'));
-// app.use(express.urlencoded({ extended: true}));
-// app.use(express.json());
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 // // creating JSON object
 // const rappers = {
